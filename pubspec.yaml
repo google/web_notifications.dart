@@ -2,8 +2,8 @@ name: notification
 description: >
   Implement the Notification element using JS interop
 version: 0.0.1
-author: <Alan Knight> <alanknight@google.com>
+author: Dart Team <misc@dartlang.org>
 dependencies:
-  browser: any
+  browser: '>=0.10.0 <0.12.0'
 dev_dependencies:
   unittest: any
