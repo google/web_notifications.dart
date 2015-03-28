@@ -1,29 +1,28 @@
 // Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
-library notification.test;
+/// A quick manual test of Notifications, using things that can only be
+/// run interactively.
+library notification.interactive_test;
 
 import 'dart:async';
 import 'dart:html' hide Notification;
-import 'dart:js';
-import 'package:unittest/unittest.dart';
 import 'package:notification/notification.dart';
 
-//debugger() { context['eval'].apply(['debugger']);}
-//debugger() { context['debugger'];}
-
 main() {
+  // We can't actually verify getting permission, as that's interactive.
+  // Run this interactively, clicking the button, to
+  // exercise this. You should see a thank you. It may require you to
+  // give permission to show notifications.
+  var button = querySelector("#b");
+  button.onClick.listen((_) {
+    Future permission = Notification.requestPermission();
+    permission.then(newNotification);
+  });
+}
 
-    var b = querySelector("#b");
-
-    var n = new Notification("Hello there");
-    n.addEventListener('click',
-        (_) => print("called"));
-    var provider = new EventStreamProvider('click');
-    var stream = provider.forTarget(n);
-    var subscription = stream.listen((x) =>
-       print("we heard you"));
-    b.onClick.listen((x) =>
-      print("Got click event $x"));
-
+newNotification(_) {
+  var notifier = new Notification('Thank you for letting me notify you');
+  notifier.onClose.listen((x) => document.body
+      .appendHtml('<p>Thank you for closing the notification</p>'));
 }

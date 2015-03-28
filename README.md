@@ -1,6 +1,8 @@
 # notification
 
-A library for Dart developers. It is awesome.
+A package that implements the Notification API. Mostly an experiment in making
+experimental APIs available as packages, rather than needing everything
+in dart:html.
 
 ## Usage
 
@@ -12,7 +14,7 @@ A simple usage example:
     main() {
       if (!Notification.supported) return;
       await Notification.requestPermission();
-      new Notification.helloWorld();
+      new Notification("Hello world", body: "Have a nice day!");
     }
 
 ## Features and bugs

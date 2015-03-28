@@ -3,7 +3,6 @@ description: >
   Implement the Notification element using JS interop
 version: 0.0.1
 author: <Alan Knight> <alanknight@google.com>
-#homepage: https://www.example.com
 dependencies:
   browser: any
 dev_dependencies:

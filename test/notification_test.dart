@@ -14,23 +14,9 @@ import 'package:notification/notification.dart';
 
 main() {
   test('constructor exists', () {
-    print(Notification.constructor.runtimeType);
     expect(Notification.constructor, isNotNull);
     expect(Notification.constructor is JsObject, isTrue);
   });
-
-//  test("get permission", () {
-//    // We can't actually verify getting permission, as that's interactive.
-//    // Uncomment this test and run interactively, clicking the button, to
-//    // exercise this.
-//    var button = querySelector("#b");
-//    button.onClick.listen(expectAsync((x) {
-//      Future permission = Notification.requestPermission();
-//      permission.then(expectAsync((x) => expect(x, 'granted')));
-//      expect(permission is Future, isTrue);
-//    }));
-//    button.click();
-//  });
 
   group('constructors', () {
     // Test that we create the notification and that the parameters have
@@ -39,10 +25,8 @@ main() {
     // interactively, so can't run on a bot.
     var allDefaults;
     var allSpecified;
-//    test('outer test 1', () => print('outer test 1'));
 
     _closeNotifications(_) {
-      print("Closing notifications, $allDefaults");
       if (allDefaults != null) allDefaults.close();
       if (allSpecified != null) allSpecified.close();
     }
@@ -71,7 +55,16 @@ main() {
         expect(tail, "icon.png");
         expect(allSpecified.tag, "tag");
         expect(allSpecified.lang, "en-US");
+        allDefaults.onClick.listen(expectAsync((x) => null));
+        clickOn(allDefaults);
       }, expectation);
     });
   });
+}
+
+/// Simulate clicking on the notification.
+clickOn(thing) {
+  var event =
+      new MouseEvent('click', view: thing, canBubble: true, cancelable: true);
+  thing.dispatchEvent(event);
 }
