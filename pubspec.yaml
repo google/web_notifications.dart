@@ -2,6 +2,9 @@ name: notification
 description: >
   Implement the Notification element using JS interop
 version: 0.0.1
+homepage: https://github.com/google/notification.dart
+environment:
+  sdk: '>=1.0.0 <2.0.0'
 author: Dart Team <misc@dartlang.org>
 dependencies:
   browser: any

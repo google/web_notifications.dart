@@ -1,14 +1,14 @@
 # notification
 
-A package that implements the Notification API. Mostly an experiment in making
-experimental APIs available as packages, rather than needing everything
-in dart:html.
+A package that implements the Notification API. Somewhat of an
+experiment in making new/experimental APIs available as packages,
+rather than having everything in dart:html.
 
 ## Usage
 
 A simple usage example:
 
-    import 'dart:html';
+    import 'dart:html' hide Notification;
     import 'package:notification/notification.dart';
 
     main() {
@@ -21,4 +21,4 @@ A simple usage example:
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: http://example.com/issues/replaceme
+[tracker]: https://github.com/google/notification.dart/issues
