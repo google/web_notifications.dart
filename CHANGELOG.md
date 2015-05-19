@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.3
+
+- Minor tweaks, but includes fixing the events, which were all using
+  clickEvent.
+
 ## 0.0.2
 
 - Renamed to web_notifications, which more correctly reflects the name
