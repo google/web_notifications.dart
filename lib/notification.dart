@@ -58,9 +58,9 @@ class Notification extends JsInteropEventTarget {
   String get icon => native['icon'];
 
   Stream<Event> get onClick => clickEvent.forTarget(this);
-  Stream<Event> get onClose => clickEvent.forTarget(this);
-  Stream<Event> get onError => clickEvent.forTarget(this);
-  Stream<Event> get onShow => clickEvent.forTarget(this);
+  Stream<Event> get onClose => closeEvent.forTarget(this);
+  Stream<Event> get onError => errorEvent.forTarget(this);
+  Stream<Event> get onShow => showEvent.forTarget(this);
 
   /// This method is used to ask the user for permission for the page to
   /// display notifications.
@@ -85,7 +85,7 @@ class Notification extends JsInteropEventTarget {
   static const EventStreamProvider<Event> showEvent =
       const EventStreamProvider<Event>('show');
 
-  void close() => native.callMethod('close', const []);
+  void close() => native.callMethod('close');
 }
 
 /// An EventTarget implementation that uses dart:js to talk to a wrapped
