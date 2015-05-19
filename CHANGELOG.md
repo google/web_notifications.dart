@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.3+1
+
+- Fix homepage in the pubspec.
+
 ## 0.0.3
 
 - Minor tweaks, but includes fixing the events, which were all using

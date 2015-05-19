@@ -1,7 +1,7 @@
 name: web_notifications
 description: >
   Implement the Web Notifications spec using JS interop
-version: 0.0.3
+version: 0.0.3+1
 homepage: https://github.com/google/web_notifications.dart
 environment:
   sdk: '>=1.0.0 <2.0.0'
