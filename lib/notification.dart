@@ -85,7 +85,7 @@ class Notification extends JsInteropEventTarget {
   static const EventStreamProvider<Event> showEvent =
       const EventStreamProvider<Event>('show');
 
-  void close() => native.callMethod('close', const []);
+  void close() => native.callMethod('close');
 }
 
 /// An EventTarget implementation that uses dart:js to talk to a wrapped
