@@ -7,7 +7,7 @@ library notification.test;
 import 'dart:html' hide Notification;
 import 'dart:async';
 import 'dart:js';
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 import 'package:web_notifications/notification.dart';
 
 main() {
@@ -61,8 +61,7 @@ main() {
 }
 
 /// Simulate clicking on the notification.
-clickOn(thing) {
-  var event =
-      new MouseEvent('click', view: thing, canBubble: true, cancelable: true);
+clickOn(Notification thing) {
+  var event = new MouseEvent('click', canBubble: true, cancelable: true);
   thing.dispatchEvent(event);
 }
