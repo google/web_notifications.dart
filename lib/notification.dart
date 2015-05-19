@@ -58,9 +58,9 @@ class Notification extends JsInteropEventTarget {
   String get icon => native['icon'];
 
   Stream<Event> get onClick => clickEvent.forTarget(this);
-  Stream<Event> get onClose => clickEvent.forTarget(this);
-  Stream<Event> get onError => clickEvent.forTarget(this);
-  Stream<Event> get onShow => clickEvent.forTarget(this);
+  Stream<Event> get onClose => closeEvent.forTarget(this);
+  Stream<Event> get onError => errorEvent.forTarget(this);
+  Stream<Event> get onShow => showEvent.forTarget(this);
 
   /// This method is used to ask the user for permission for the page to
   /// display notifications.
