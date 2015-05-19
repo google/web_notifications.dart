@@ -8,7 +8,7 @@ import 'dart:html' hide Notification;
 import 'dart:async';
 import 'dart:js';
 import 'package:unittest/unittest.dart';
-import 'package:notification/notification.dart';
+import 'package:web_notifications/notification.dart';
 
 main() {
   test('constructor exists', () {

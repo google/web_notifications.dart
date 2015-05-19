@@ -8,7 +8,7 @@ library notification.interactive_test;
 
 import 'dart:async';
 import 'dart:html' hide Notification;
-import 'package:notification/notification.dart';
+import 'package:web_notifications/notification.dart';
 
 main() {
   // We can't actually verify getting permission, as that's interactive.
