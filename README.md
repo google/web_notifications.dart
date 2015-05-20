@@ -23,4 +23,4 @@ main() async {
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: https://github.com/google/notification.dart/issues
+[tracker]: https://github.com/google/web_notifications.dart/issues
