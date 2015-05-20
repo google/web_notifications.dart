@@ -1,0 +1,10 @@
+language: dart
+with_content_shell: true
+script: ./tool/travis.sh
+sudo: false
+dart:
+  - stable
+  - dev
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
