@@ -1,6 +1,6 @@
 language: dart
 with_content_shell: true
-script: ./tool/travis.sh
+script: pub run test -p content-shell -p firefox
 sudo: false
 dart:
   - stable

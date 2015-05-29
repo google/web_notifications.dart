@@ -33,37 +33,36 @@ main() {
     tearDown(closeNotifications);
 
     test('Notification', () {
-        var expectation = Notification.supported ? returnsNormally : throws;
-        expect(() {
-          allDefaults = new Notification("Hello world");
-          allSpecified = new Notification("Deluxe notification",
-              dir: "rtl",
-              body: 'All parameters set',
-              icon: 'icon.png',
-              tag: 'tag',
-              lang: 'en-US');
-        }, expectation);
-        if (!Notification.supported) return;
-        expect(allDefaults is Notification, isTrue);
-        expect(allSpecified is Notification, isTrue);
-        expect(allDefaults.title, "Hello world");
-        expect(allSpecified.title, "Deluxe notification");
-        expect(allSpecified.dir, "rtl");
-        expect(allSpecified.body, "All parameters set");
-        var icon = allSpecified.icon;
-        var tail = Uri.parse(icon).pathSegments.last;
-        expect(tail, "icon.png");
-        expect(allSpecified.tag, "tag");
-        expect(allSpecified.lang, "en-US");
-        allDefaults.onClick.listen(expectAsync((x) => null));
-        clickOn(allDefaults);
+      var expectation = Notification.supported ? returnsNormally : throws;
+      expect(() {
+        allDefaults = new Notification("Hello world");
+        allSpecified = new Notification("Deluxe notification",
+            dir: "rtl",
+            body: 'All parameters set',
+            icon: 'icon.png',
+            tag: 'tag',
+            lang: 'en-US');
+      }, expectation);
+      if (!Notification.supported) return;
+      expect(allDefaults is Notification, isTrue);
+      expect(allSpecified is Notification, isTrue);
+      expect(allDefaults.title, "Hello world");
+      expect(allSpecified.title, "Deluxe notification");
+      expect(allSpecified.dir, "rtl");
+      expect(allSpecified.body, "All parameters set");
+      var icon = allSpecified.icon;
+      var tail = Uri.parse(icon).pathSegments.last;
+      expect(tail, "icon.png");
+      expect(allSpecified.tag, "tag");
+      expect(allSpecified.lang, "en-US");
+      allDefaults.onClick.listen(expectAsync((x) => null));
+      clickOn(allDefaults);
     });
   });
 }
 
 /// Simulate clicking on the notification.
 clickOn(Notification thing) {
-  var event =
-      new MouseEvent('click', canBubble: true, cancelable: true);
+  var event = new MouseEvent('click', canBubble: true, cancelable: true);
   thing.dispatchEvent(event);
 }
