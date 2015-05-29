@@ -4,6 +4,9 @@
 
 /// A quick manual test of Notifications, using things that can only be
 /// run interactively.
+///
+/// To test, run pub serve, then connect to
+/// http://localhost:8080/notification_interactive.html
 library notification.interactive_test;
 
 import 'dart:async';

@@ -2,12 +2,12 @@
 // All rights reserved. Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-library notification.test;
+library notification_test;
 
 import 'dart:html' hide Notification;
 import 'dart:async';
 import 'dart:js';
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 import 'package:web_notifications/notification.dart';
 
 main() {
@@ -42,27 +42,27 @@ main() {
             icon: 'icon.png',
             tag: 'tag',
             lang: 'en-US');
-        expect(allDefaults is Notification, isTrue);
-        expect(allSpecified is Notification, isTrue);
-        expect(allDefaults.title, "Hello world");
-        expect(allSpecified.title, "Deluxe notification");
-        expect(allSpecified.dir, "rtl");
-        expect(allSpecified.body, "All parameters set");
-        var icon = allSpecified.icon;
-        var tail = Uri.parse(icon).pathSegments.last;
-        expect(tail, "icon.png");
-        expect(allSpecified.tag, "tag");
-        expect(allSpecified.lang, "en-US");
-        allDefaults.onClick.listen(expectAsync((x) => null));
-        clickOn(allDefaults);
       }, expectation);
+      if (!Notification.supported) return;
+      expect(allDefaults is Notification, isTrue);
+      expect(allSpecified is Notification, isTrue);
+      expect(allDefaults.title, "Hello world");
+      expect(allSpecified.title, "Deluxe notification");
+      expect(allSpecified.dir, "rtl");
+      expect(allSpecified.body, "All parameters set");
+      var icon = allSpecified.icon;
+      var tail = Uri.parse(icon).pathSegments.last;
+      expect(tail, "icon.png");
+      expect(allSpecified.tag, "tag");
+      expect(allSpecified.lang, "en-US");
+      allDefaults.onClick.listen(expectAsync((x) => null));
+      clickOn(allDefaults);
     });
   });
 }
 
 /// Simulate clicking on the notification.
-clickOn(thing) {
-  var event =
-      new MouseEvent('click', view: thing, canBubble: true, cancelable: true);
+clickOn(Notification thing) {
+  var event = new MouseEvent('click', canBubble: true, cancelable: true);
   thing.dispatchEvent(event);
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.3+2
+
+- Enable Travis testing.
+
 ## 0.0.3+1
 
 - Fix homepage in the pubspec.
