@@ -1,5 +1,7 @@
 # notification
 
+[![Build Status](https://travis-ci.org/google/web_notifications.dart.svg?branch=master)](https://travis-ci.org/google/web_notifications.dart)
+
 A package that implements the Notification API. Somewhat of an
 experiment in making new/experimental APIs available as packages,
 rather than having everything in `dart:html`.
