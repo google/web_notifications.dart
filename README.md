@@ -1,4 +1,4 @@
-# notification
+# web_notifications
 
 A package that implements the Notification API. Somewhat of an
 experiment in making new/experimental APIs available as packages,
