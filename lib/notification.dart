@@ -33,7 +33,8 @@ class Notification extends JsInteropEventTarget {
   /// The [lang] is a BCP47 language indicator, e.g. 'en-US'.
   /// The [icon] is a URL String to the icon which may be displayed along
   /// with the notification, if supported.
-  factory Notification(String title, {String dir, String lang, String body, String tag, String icon}) {
+  factory Notification(String title,
+      {String dir, String lang, String body, String tag, String icon}) {
     var options = new JsObject.jsify(const {});
     if (dir != null) options['dir'] = dir;
     if (lang != null) options['lang'] = lang;
@@ -73,6 +74,7 @@ class Notification extends JsInteropEventTarget {
     constructor.callMethod('requestPermission', [complete]);
     return c.future;
   }
+
   static bool get hasPermission => constructor['permission'] == 'granted';
   static String get permission => constructor['permission'];
 
@@ -91,7 +93,6 @@ class Notification extends JsInteropEventTarget {
 /// An EventTarget implementation that uses dart:js to talk to a wrapped
 /// JS Object.
 class JsInteropEventTarget implements EventTarget {
-
   /// The wrapped JavaScript Object that we delegate to.
   JsObject native;
 
@@ -105,6 +106,7 @@ class JsInteropEventTarget implements EventTarget {
   bool dispatchEvent(Event event) {
     return native.callMethod('dispatchEvent', [event]);
   }
+
   void removeEventListener(String type, EventListener listener,
       [bool useCapture]) {
     native.callMethod('removeEventListener', [type, listener, useCapture]);

@@ -28,6 +28,7 @@ main() {
       if (allDefaults != null) allDefaults.close();
       if (allSpecified != null) allSpecified.close();
     }
+
     closeNotifications() => new Future.delayed(new Duration(milliseconds: 1))
         .then(_closeNotifications);
     tearDown(closeNotifications);
