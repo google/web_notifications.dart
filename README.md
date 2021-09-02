@@ -1,3 +1,8 @@
+## Note: this package is not longer being actively maintained
+
+---
+
+
 # web_notifications
 
 [![Build Status](https://travis-ci.org/google/web_notifications.dart.svg?branch=master)](https://travis-ci.org/google/web_notifications.dart)
